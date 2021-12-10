@@ -2,6 +2,13 @@
 Google Assistant implementation on ansible (coming soon).
 
 # Installations
+0. Clone this repo.
+
+```bash
+    $ git clone https://github.com/sinichi449/Ansible-Assistant.git
+    $ cd Ansible-Assistant
+```
+
 1. [Configure a Developer Project and Account Settings](https://developers.google.com/assistant/sdk/guides/service/python/embed/config-dev-project-and-account)
 
 2. [Register the Device Model](https://developers.google.com/assistant/sdk/guides/service/python/embed/register-device)
