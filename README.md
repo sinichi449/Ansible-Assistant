@@ -98,4 +98,4 @@ Google Assistant implementation on ansible (coming soon).
     
 20. Press `ENTER` to capture your voice command. Say something like `Create 10 folders.`
 
-21. If nothing happens, check the step **#12** or visit `https://console.actions.google.com/project/<your-project-id>/actions/`. Make sure you **Save** all the actions.
+21. If nothing happens, check the step **#12** or visit `https://console.actions.google.com/project/<your-project-id>/actions/`. Make sure you've clicked **SAVE** button of all actions.
