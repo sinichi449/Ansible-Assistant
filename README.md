@@ -65,11 +65,25 @@ Google Assistant implementation on ansible (coming soon).
 ```
 15. Pay attention to something like `INFO:root:Device registered: 928dbb4a-59b0-11ec-a926-37546axxxxx`.
 
-16. Press `CTRL + C` to exit the `googlesamples-assistant-pushtotalk` program.
+16. Copy `928dbb4a-59b0-11ec-a926-37546axxxxx`.
 
-16. Copy `928dbb4a-59b0-11ec-a926-37546axxxxx` and paste to `commands.py` -> `device_id`
+17. Press `CTRL + C` to exit the `googlesamples-assistant-pushtotalk` program.
 
-17. Run the `main.py`
+18. Paste `928dbb4a-59b0-11ec-a926-37546axxxxx` to `commands.py` -> `device_id`.
+
+```bash
+    (env) $ nano commands.py
+```
+```python
+    ...
+    from utils import device_helpers
+
+    device_id = '928dbb4a-59b0-11ec-a926-37546axxxxx' # Replace this
+    device_handler = device_helpers.DeviceRequestHandler(device_id)
+    ...
+```
+
+19. Run the `main.py`
 
     ```bash
         (env) $ python3 main.py
