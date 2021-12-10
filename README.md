@@ -1,5 +1,5 @@
 # Ansible-Assistant
-Google Assistant implementation on ansible
+Google Assistant implementation on ansible (coming soon).
 
 # Installations
 1. [Configure a Developer Project and Account Settings](https://developers.google.com/assistant/sdk/guides/service/python/embed/config-dev-project-and-account)
@@ -25,9 +25,9 @@ Google Assistant implementation on ansible
     (env) $ python -m pip install --upgrade google-assistant-sdk[samples]
 ```
 
-6. Go to [Google Cloud Credentials](https://console.cloud.google.com/apis/credentials/). Setup the OAuth consent screen and fill all the required forms. 
+6. Go to [Google Cloud Credentials](https://console.cloud.google.com/apis/credentials/). Setup the **OAuth Consent Screen** and fill all the required forms. 
 
-7. On the Test users section, click `ADD USER` and add your email.
+7. On the **Test Users** section, click `ADD USER` and add your email.
 
 8. Generate credentials.
 
