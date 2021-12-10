@@ -1,0 +1,418 @@
+{
+    "manifest": {
+        "displayName": "Start Command",
+        "invocationName": "Start Command",
+        "category": "PRODUCTIVITY"
+    },
+    "actions": [
+        {
+            "name": "com.example.actions.BlinkLight",
+            "availability": {
+                "deviceClasses": [
+                    {
+                        "assistantSdkDevice": {}
+                    }
+                ]
+            },
+            "intent": {
+                "name": "com.example.intents.BlinkLight",
+                "parameters": [
+                    {
+                        "name": "number",
+                        "type": "SchemaOrg_Number"
+                    },
+                    {
+                        "name": "speed",
+                        "type": "Speed"
+                    }
+                ],
+                "trigger": {
+                    "queryPatterns": [
+                        "blink ($Speed:speed)? $SchemaOrg_Number:number times",
+                        "blink $SchemaOrg_Number:number times ($Speed:speed)?"
+                    ]
+                }
+            },
+            "fulfillment": {
+                "staticFulfillment": {
+                    "templatedResponse": {
+                        "items": [
+                            {
+                                "simpleResponse": {
+                                    "textToSpeech": "Blinking $number times"
+                                }
+                            },
+                            {
+                                "deviceExecution": {
+                                    "command": "com.example.commands.BlinkLight",
+                                    "params": {
+                                        "speed": "$speed",
+                                        "number": "$number"
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                }
+            }
+        },
+        {
+            "name": "com.example.actions.LSL",
+            "availability": {
+                "deviceClasses": [
+                    {
+                        "assistantSdkDevice": {}
+                    }
+                ]
+            },
+            "intent": {
+                "name": "com.example.intents.LSL",
+                "parameters": [
+                    {
+                        "name": "folder",
+                        "type": "Folder"
+                    }
+                ],
+                "trigger": {
+                    "queryPatterns": [
+                        "All files in $Folder:folder",
+                        "Show $Folder:folder",
+                        "Files in $Folder:folder",
+                        "Show files in $Folder:folder"
+                    ]
+                }
+            },
+            "fulfillment": {
+                "staticFulfillment": {
+                    "templatedResponse": {
+                        "items": [
+                            {
+                                "simpleResponse": {
+                                    "textToSpeech": "Here is $folder and its files."
+                                }
+                            },
+                            {
+                                "deviceExecution": {
+                                    "command": "com.example.commands.LSL",
+                                    "params": {
+                                        "folder": "$folder"
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                }
+            }
+        },
+        {
+            "name": "com.example.actions.CD",
+            "availability": {
+                "deviceClasses": [
+                    {
+                        "assistantSdkDevice": {}
+                    }
+                ]
+            },
+            "intent": {
+                "name": "com.example.intents.CD",
+                "parameters": [
+                    {
+                        "name": "dir_destination",
+                        "type": "SchemaOrg_Text"
+                    }
+                ],
+                "trigger": {
+                    "queryPatterns": [
+                        "Change folder to $SchemaOrg_Text:dir_destination",
+                        "Go to folder $SchemaOrg_Text:dir_destination"
+                    ]
+                }
+            },
+            "fulfillment": {
+                "staticFulfillment": {
+                    "templatedResponse": {
+                        "items": [
+                            {
+                                "simpleResponse": {
+                                    "textToSpeech": "Changing folder to $dir_destination"
+                                }
+                            },
+                            {
+                                "deviceExecution": {
+                                    "command": "com.example.commands.CD",
+                                    "params": {
+                                        "dir_destination": "$dir_destination"
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                }
+            }
+        },
+        {
+            "name": "com.example.actions.CP",
+            "availability": {
+                "deviceClasses": [
+                    {
+                        "assistantSdkDevice": {}
+                    }
+                ]
+            },
+            "intent": {
+                "name": "com.example.intents.CP",
+                "trigger": {
+                    "queryPatterns": [
+                        "Copy a file",
+                        "Copy a folder",
+                        "Copy files",
+                        "Copy folders",
+                        "Copy file",
+                        "Copy files"
+                    ]
+                }
+            },
+            "fulfillment": {
+                "staticFulfillment": {
+                    "templatedResponse": {
+                        "items": [
+                            {
+                                "simpleResponse": {
+                                    "textToSpeech": "Please follow the instruction below for copying a file or folder."
+                                }
+                            },
+                            {
+                                "deviceExecution": {
+                                    "command": "com.example.commands.CP"
+                                }
+                            }
+                        ]
+                    }
+                }
+            }
+        },
+        {
+            "name": "com.example.actions.RM",
+            "availability": {
+                "deviceClasses": [
+                    {
+                        "assistantSdkDevice": {}
+                    }
+                ]
+            },
+            "intent": {
+                "name": "com.example.intents.RM",
+                "trigger": {
+                    "queryPatterns": [
+                        "Remove a file",
+                        "Remove a folder",
+                        "Remove file",
+                        "Remove folder",
+                        "Remove files",
+                        "Remove folders",
+                        "Delete a file",
+                        "Delete a folder",
+                        "Delete file",
+                        "Delete folder",
+                        "Delete files",
+                        "Delete folders"
+                    ]
+                }
+            },
+            "fulfillment": {
+                "staticFulfillment": {
+                    "templatedResponse": {
+                        "items": [
+                            {
+                                "simpleResponse": {
+                                    "textToSpeech": "Follow below instruction to delete a file or folder."
+                                }
+                            },
+                            {
+                                "deviceExecution": {
+                                    "command": "com.example.commands.RM"
+                                }
+                            }
+                        ]
+                    }
+                }
+            }
+        },
+        {
+            "name": "com.example.actions.MKDIR",
+            "availability": {
+                "deviceClasses": [
+                    {
+                        "assistantSdkDevice": {}
+                    }
+                ]
+            },
+            "intent": {
+                "name": "com.example.intents.MKDIR",
+                "trigger": {
+                    "queryPatterns": [
+                        "Create a folder",
+                        "Create folder"
+                    ]
+                }
+            },
+            "fulfillment": {
+                "staticFulfillment": {
+                    "templatedResponse": {
+                        "items": [
+                            {
+                                "simpleResponse": {
+                                    "textToSpeech": "Please type the folder name below!"
+                                }
+                            },
+                            {
+                                "deviceExecution": {
+                                    "command": "com.example.commands.MKDIR"
+                                }
+                            }
+                        ]
+                    }
+                }
+            }
+        },
+        {
+            "name": "com.example.actions.MV",
+            "availability": {
+                "deviceClasses": [
+                    {
+                        "assistantSdkDevice": {}
+                    }
+                ]
+            },
+            "intent": {
+                "name": "com.example.intents.MV",
+                "trigger": {
+                    "queryPatterns": [
+                        "Move a file",
+                        "Move file",
+                        "Move files"
+                    ]
+                }
+            },
+            "fulfillment":{
+                "staticFulfillment": {
+                    "templatedResponse": {
+                        "items": [
+                            {
+                                "simpleResponse": {
+                                    "textToSpeech": "Choose a file to be moved below!"
+                                }
+                            },
+                            {
+                                "deviceExecution": {
+                                    "command": "com.example.commands.MV"
+                                }
+                            }
+                        ]
+                    }
+                }
+            }
+        },
+        {
+            "name":"com.example.actions.MKDIRRAND",
+            "availability":{
+                "deviceClasses":[
+                    {
+                        "assistantSdkDevice":{}
+                    }
+                ]
+            },
+            "intent":{
+                "name":"com.example.intents.MKDIRRAND",
+                "trigger":{
+                    "queryPatterns":[
+                        "Create 10 (random)? folders",
+                        "New 10 (random)? folder",
+                        "Make 10 (random)? folders"
+                    ]
+                }
+            },
+            "fulfillment":{
+                "staticFulfillment":{
+                    "templatedResponse":{
+                        "items":[
+                            {
+                                "simpleResponse":{
+                                    "textToSpeech":"Okay, I've created 10 random name's folders"
+                                }
+                            },
+                            {
+                                "deviceExecution":{
+                                    "command":"com.example.commands.MKDIRRAND"
+                                }
+                            }
+                        ]
+                    }
+                }
+            }
+        }
+    ],
+    "types": [
+        {
+            "name": "$Speed",
+            "entities": [
+                {
+                    "key": "SLOWLY",
+                    "synonyms": [
+                        "slowly",
+                        "slow"
+                    ]
+                },
+                {
+                    "key": "NORMALLY",
+                    "synonyms": [
+                        "normally",
+                        "regular"
+                    ]
+                },
+                {
+                    "key": "QUICKLY",
+                    "synonyms": [
+                        "quickly",
+                        "fast",
+                        "quick"
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "$Folder",
+            "entities": [
+                {
+                    "key": "DOWNLOADS",
+                    "synonyms": [
+                        "download",
+                        "downloads"
+                    ]
+                },
+                {
+                    "key": "DOCUMENTS",
+                    "synonyms": [
+                        "document",
+                        "Documents"
+                    ]
+                },
+                {
+                    "key": "HOME",
+                    "synonyms": [
+                        "home",
+                        "main"
+                    ]
+                },
+                {
+                    "key": "CURRENT",
+                    "synonyms": [
+                        "currently",
+                        "here",
+                        "current"
+                    ]
+                }
+            ]
+        }
+    ]
+}
