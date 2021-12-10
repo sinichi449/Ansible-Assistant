@@ -33,15 +33,15 @@ Google Assistant implementation on ansible
 
 ```bash
     (env) $ python -m pip install --upgrade google-auth-oauthlib[tool]
-    # change /path/to/client_secret_client-id.json to the directory of downloaded client secrets.
     
+    # change /path/to/client_secret_client-id.json to the directory of downloaded client secrets.
     (env) $ google-oauthlib-tool --scope https://www.googleapis.com/auth/assistant-sdk-prototype \
       --save --headless --client-secrets /path/to/client_secret_client-id.json
 ```
 
 9. Follow the instructions URL. 
 
-10. If you encountered **403 ERROR UNAUTHORIZED**, go back and double check steps #6 and #7.
+10. If you encountered **403 ERROR UNAUTHORIZED**, go back and double check steps **#6** and **#7**.
 
 11. Back to your cloned repo directory, make the `gactions` file executable.
  
@@ -57,5 +57,22 @@ Google Assistant implementation on ansible
 
 13. Follow the instructions URL to authorize apps to Google Accounts.
 
+14. Get `device_id`:
 
+```bash
+    # Replace my-dev-project and my-model
+    (env) $ googlesamples-assistant-pushtotalk --project-id my-dev-project --device-model-id my-model
+```
+15. Pay attention to something like `INFO:root:Device registered: 928dbb4a-59b0-11ec-a926-37546axxxxx`.
 
+16. Press `CTRL + C` to exit the `googlesamples-assistant-pushtotalk` program.
+
+16. Copy `928dbb4a-59b0-11ec-a926-37546axxxxx` and paste to `commands.py` -> `device_id`
+
+17. Run the `main.py`
+
+    ```bash
+        (env) $ python3 main.py
+    ```
+    
+   
