@@ -7,7 +7,7 @@ import shutil
 import subprocess
 from utils import device_helpers
 
-device_id = '6475c4c6-54cb-11ec-acfb-1d840aba8f3e'
+device_id = '<your-device-id>'
 device_handler = device_helpers.DeviceRequestHandler(device_id)
 
 def show_files_in_dict():
