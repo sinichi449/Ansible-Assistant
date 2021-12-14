@@ -294,7 +294,7 @@
                     ]
                 }
             },
-            "fulfillment":{
+            "fulfillment": {
                 "staticFulfillment": {
                     "templatedResponse": {
                         "items": [
@@ -314,36 +314,89 @@
             }
         },
         {
-            "name":"com.example.actions.MKDIRRAND",
-            "availability":{
-                "deviceClasses":[
+            "name": "com.example.actions.MKDIRRAND",
+            "availability": {
+                "deviceClasses": [
                     {
-                        "assistantSdkDevice":{}
+                        "assistantSdkDevice": {}
                     }
                 ]
             },
-            "intent":{
-                "name":"com.example.intents.MKDIRRAND",
-                "trigger":{
-                    "queryPatterns":[
+            "intent": {
+                "name": "com.example.intents.MKDIRRAND",
+                "trigger": {
+                    "queryPatterns": [
                         "Create 10 (random)? folders",
                         "New 10 (random)? folder",
                         "Make 10 (random)? folders"
                     ]
                 }
             },
-            "fulfillment":{
-                "staticFulfillment":{
-                    "templatedResponse":{
-                        "items":[
+            "fulfillment": {
+                "staticFulfillment": {
+                    "templatedResponse": {
+                        "items": [
                             {
-                                "simpleResponse":{
-                                    "textToSpeech":"Okay, I've created 10 random name's folders"
+                                "simpleResponse": {
+                                    "textToSpeech": "Okay, I've created 10 random name's folders"
                                 }
                             },
                             {
-                                "deviceExecution":{
-                                    "command":"com.example.commands.MKDIRRAND"
+                                "deviceExecution": {
+                                    "command": "com.example.commands.MKDIRRAND"
+                                }
+                            }
+                        ]
+                    }
+                }
+            }
+        },
+        {
+            "name": "com.example.actions.DMESG",
+            "availability": {
+                "deviceClasses": [
+                    {
+                        "assistantSdkDevice": {}
+                    }
+                ]
+            },
+            "intent": {
+                "name": "com.example.intents.DMESG",
+                "parameters": [
+                    {
+                        "name": "grep",
+                        "type": "SchemaOrg_Text"
+                    }
+                ],
+                "trigger": {
+                    "queryPatterns": [
+                        "Show (last)? error",
+                        "Show (last)? error on (the)? $SchemaOrg_Text:grep",
+                        "Show (last)? error related to $SchemaOrg_Text:grep",
+                        "Show (last)? error related to (the)? $SchemaOrg_Text:grep",
+                        "Show (recent)? error",
+                        "Show (recent)? error on (the)? $SchemaOrg_Text:grep",
+                        "Show (recent)? error related to (the)? $SchemaOrg_Text:grep",
+                        "What's the error on (the)? $SchemaOrg_Text:grep",
+                        "Why (the)? system (is)? error"
+                    ]
+                }
+            },
+            "fulfillment": {
+                "staticFulfillment": {
+                    "templatedResponse": {
+                        "items": [
+                            {
+                                "simpleResponse": {
+                                    "textToSpeech": "These are the recent error messages from the system."
+                                }
+                            },
+                            {
+                                "deviceExecution": {
+                                    "command": "com.example.commands.DMESG",
+                                    "params": {
+                                        "grep": "$grep"
+                                    }
                                 }
                             }
                         ]

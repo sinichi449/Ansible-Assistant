@@ -7,7 +7,7 @@ import shutil
 import subprocess
 from utils import device_helpers
 
-device_id = 'your-device-id'
+device_id = '6475c4c6-54cb-11ec-acfb-1d840aba8f3e'
 device_handler = device_helpers.DeviceRequestHandler(device_id)
 
 def show_files_in_dict():
@@ -109,6 +109,17 @@ def moveFile():
 def createRandomFolder():
     subprocess.call(["./shell/mkdir.sh"])
     print('Success')
+    
+@device_handler.command('com.example.commands.DMESG')
+def logSystem(grep):
+    if grep:
+        print(f'Executing:\t dmesg --level=err | grep -i {grep}')
+        print(f'Recent errors on the {grep}')
+        os.system(f'dmesg --level=err | grep -i {grep}')
+    else:
+        print('Executing:\t dmesg --level=err')
+        print('Recent errors of the system')
+        os.system('dmesg --level=err')
     
 def get_device_handler():
     return device_handler
